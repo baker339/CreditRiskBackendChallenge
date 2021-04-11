@@ -26,6 +26,7 @@ much to make a fancy front end. But, I tried to do a little
 formatting and make things a little prettier both for the
 sake of making things easy to read but also just to have
 a little fun.
+
 ---
 
 ### **Where do I see gaps and what do I think could be expanded in the future?**
@@ -88,6 +89,7 @@ so perfect for that sort of thing because a dev can
 so easily create a single web page application and
 that is all you need for this. It could even be
 handled without needing to rely on Redux.
+
 ---
 
 ### **Remaining Questions?**
@@ -108,4 +110,5 @@ Step 2: New limit * Risk multiplier
 
 One term (The method I used)
 Step 1: Starting Limit * Assets Multiplier * Risk Muitiplier
+
 ---
