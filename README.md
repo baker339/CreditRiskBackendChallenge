@@ -106,11 +106,11 @@ risk, they are assessed in a single mathematical,
 monomial expression.
 
 Example
-More than one term
-Step 1: Starting limit * Assets multiplier
-Step 2: New limit * Risk multiplier
+* More than one term
+  * Step 1: Starting limit * Assets multiplier
+  * Step 2: New limit * Risk multiplier
 
-One term (The method I used)
-Step 1: Starting Limit * Assets Multiplier * Risk Muitiplier
+* One term (The method I used)
+  * Step 1: Starting Limit * Assets Multiplier * Risk Muitiplier
 
 ---
