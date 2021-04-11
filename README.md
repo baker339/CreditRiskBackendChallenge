@@ -29,6 +29,7 @@ a little fun.
 
 ---
 
+
 ### **Where do I see gaps and what do I think could be expanded in the future?**
 ---
 ### The Database
@@ -91,6 +92,7 @@ that is all you need for this. It could even be
 handled without needing to rely on Redux.
 
 ---
+
 
 ### **Remaining Questions?**
 ---
