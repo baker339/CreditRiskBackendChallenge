@@ -17,6 +17,10 @@ I opted to use an MVC model and a simple .Net core web app,
 just because the scope of the project seemed to me to be
 just a light application to display data.
 
+Before running, make sure to update the connection settings
+in the appsettings.json to match whereever the MySQL 
+database is being hosted.
+
 ### The Front End
 The challenge was to build the backend, so I didn't do too
 much to make a fancy front end. But, I tried to do a little
