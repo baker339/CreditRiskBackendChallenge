@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CreditRiskBackendChallenge.Models.Limit>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 85%;
+        margin: auto;
+    }
+
+    td, th {
+        border: 2px solid #1A1A1A;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #50104A;
+        color: #dddddd;
+    }
+    tr:nth-child(odd) {
+        background-color: #f2e6ff;
+        color: #1A1A1A;
+    }
+</style>
+
+<h2 style="text-align: center">Today's Limits for Approved Banks</h2>
+<br />
+<table>
+    <tr>
+        <th>Bank Name</th>
+        <th>Rating</th>
+        <th>Assets</th>
+        <th>Calculated Limit</th>
+        <th>Date</th>
+    </tr>
+    @foreach (var limit in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayTextFor(modelItem => limit.bankName)
+                    </td>
+                    <td>
+                        @Html.DisplayTextFor(modelItem => limit.rating)
+                    </td>
+                    <td>
+                        @string.Format("${0:n2}", limit.assets)
+                    </td>
+                    <td>
+                        @string.Format("${0:n2}", limit.calculatedLimit)
+                    </td>
+                    <td>
+                        @Html.DisplayTextFor(modelItem => limit.lastUpdatedDateTime)
+                    </td>
+                </tr>
+            }
+</table>

@@ -1,0 +1,44 @@
+-- Create the two stored procedures used for challenge
+
+------------------------------------------------------------------------------------------------
+CREATE PROCEDURE CREDITRISKBACKENDCHALLENGE.calculateLimit()
+BEGIN
+	insert into calcLimit (bankId, assetsId, ratingsId, calculatedLimit, lastUpdateDateTime)
+	select 
+		b.bankId,
+		a.assetsId,
+		r.ratingsId,
+		aSet.baseLimit * 
+			(case 
+				when a.assets >= aSet.minAssetsForIncrease then aSet.assetIncreaseMultiplier
+				else 1 end) *
+				rl.effectMultiplier,
+		CURDATE() 
+	from banks b 
+	inner join assets a on b.bankId = a.bankId 
+	inner join ratings r on b.bankId =r.bankId
+	left join calcLimit cl on b.bankId = cl.bankId and cl.lastUpdateDateTime = CURDATE()
+	left join riskLimit rl on rl.minRisk <= r.rating  and rl.maxRisk >= r.rating 
+	left join assetSettings aSet on 1 = 1
+	where b.approved = 1 and cl.calcLimitId is null;
+END
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+CREATE PROCEDURE CREDITRISKBACKENDCHALLENGE.getCalculatedLimit()
+BEGIN
+	call calculateLimit();
+	
+	select  
+		b.bankName,
+		r.rating, 
+		a.assets,
+		cl.calculatedLimit,
+		DATE_FORMAT(cl.lastUpdateDateTime, '%d/%m/%Y') as LastUpdatedDateTime
+	from calcLimit cl
+	join banks b on cl.bankId = b.bankId 
+	join assets a on cl.assetsId = a.assetsId 
+	join ratings r on cl.ratingsId = r.ratingsId 
+	where cl.calculatedLimit is not null and cl.lastUpdateDateTime = CURDATE(); 
+END
+------------------------------------------------------------------------------------------------
