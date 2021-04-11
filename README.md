@@ -1,8 +1,7 @@
-# Hello, Ally team!
+# **Hello, Ally team!**
 
-### A little bit of background on what I am presenting here.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### **A little bit of background on what I am presenting here.**
+---
 ### The Database
 For the database I decided to use a MySQL database.
 I am more comfortable with SQL Server in general, but I also
@@ -27,12 +26,10 @@ much to make a fancy front end. But, I tried to do a little
 formatting and make things a little prettier both for the
 sake of making things easy to read but also just to have
 a little fun.
+---
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-### Where do I see gaps and what do I think could be expanded in the future?
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### **Where do I see gaps and what do I think could be expanded in the future?**
+---
 ### The Database
 The way the database is currently setup, I am fairly
 happy with the schema. What I am uncomfortable with
@@ -91,5 +88,24 @@ so perfect for that sort of thing because a dev can
 so easily create a single web page application and
 that is all you need for this. It could even be
 handled without needing to rely on Redux.
+---
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### **Remaining Questions?**
+---
+So the only thing that I felt a little unsure about
+was the order of operations in order to perform
+the calculations for credit limit itself. I felt that
+it would be safest to err on the side of a single
+mathematical term and one operation. What I mean is
+that instead of assessing assets and then assessing
+risk, they are assessed in a single mathematical,
+monomial expression.
+
+Example
+More than one term
+Step 1: Starting limit * Assets multiplier
+Step 2: New limit * Risk multiplier
+
+One term (The method I used)
+Step 1: Starting Limit * Assets Multiplier * Risk Muitiplier
+---

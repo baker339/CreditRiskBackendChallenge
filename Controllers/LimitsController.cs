@@ -13,11 +13,21 @@ namespace CreditRiskBackendChallenge.Controllers
     {
         public IActionResult Index()
         {
-            LimitsContext context = HttpContext.RequestServices.GetService(typeof(NetCoreWebApp.Models.LimitsContext)) as LimitsContext;
+            try
+            {
+                LimitsContext context = HttpContext.RequestServices.GetService(typeof(NetCoreWebApp.Models.LimitsContext)) as LimitsContext;
 
-            Console.WriteLine("Made it into the LimitsController");
+                return View(context.GetLimits());
+            }
+            catch
+            {
+                return Error();
+            }
+        }
 
-            return View(context.GetLimits());
+        public IActionResult Error()
+        {
+            return View("Error");
         }
     }
 }
